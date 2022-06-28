@@ -34,8 +34,8 @@ import { AchivementsComponent } from './Achivements/Achivements.component';
     Card11Component,
     ChangepasswordComponent,
     HrprofileComponent,
-      ViewProjectdetailsComponent,
-      AchivementsComponent
+      AchivementsComponent,
+      ViewProjectdetailsComponent
    ],
   imports: [
     BrowserModule,

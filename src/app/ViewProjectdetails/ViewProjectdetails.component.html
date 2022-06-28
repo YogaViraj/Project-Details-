@@ -2,7 +2,7 @@
 <app-sidebar></app-sidebar>
 
 <div class="container d-flex justify-content-center table-box">
-  <form action="#" class="form" (click)="OnSubmit()">
+  <form action="#" class="form">
     <!-- <h1 class="text-center">Registration Form</h1> -->
     <!-- Progress bar -->
     <div class="progressbar">
@@ -20,11 +20,11 @@
 
       <div class="input-group">
         <label for="Proname">Project Name</label>
-        <input type="text" name="Proname" value={{data.projectname}}  id="Proname" placeholder="Enter Project name"  />
+        <input type="text" [(ngModel)]="projectfield.projectname" name="projectname" id="Proname" placeholder="Enter Project name"  />
       </div>
       <div class="input-group">
         <label for="Prodes">Project Description</label>
-        <textarea name="Prodes" value={{data.projectdescription}} id="Prodes" rows="4" cols="80" placeholder="Enter Project description"></textarea>
+        <textarea [(ngModel)]="projectfield.projectdescription" name="Description" id="Prodes" rows="4" cols="80" placeholder="Enter Project description"></textarea>
       </div>
       <table>
         <tr>
@@ -37,31 +37,46 @@
       </table>
       <div>
         <label for="personaldetails">StartingMonth</label>
-        <input type="text" value={{data.startingMonth}}  id="personaldetails" />
+        <input type="text" [(ngModel)]="projectfield.startingMonth" name="Startmonth" id="personaldetails" />
       </div>
-      <div>
-        <label for="personaldetails">StaringYear</label>
-        <input type="text" value={{data.startingYear}}  id="personaldetails" />
-      </div>
+
+      <label for="personaldetails">StaringYear</label>
+
+        <select [(ngModel)]="projectfield.startingYear" name="Startyear" required="">
+
+          <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+
+        </select>
+
       <div>
         <label for="personaldetails">EndingMonth</label>
-        <input type="text" value={{data.endingMonth}}  id="personaldetails" />
+        <input type="text" [(ngModel)]="projectfield.endingMonth" name="Endmonth" id="personaldetails" />
       </div>
+
+      
+      <label for="personaldetails">EndingYear</label>
+
+        <select [(ngModel)]="projectfield.endingYear" name="Endyear" required="">
+
+          <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+
+        </select>
+<!-- 
       <div class="input-group">
         <label for="personaldetails">EndingYear</label>
-        <input type="text" value={{data.endingYear}}  />
-      </div>
+        <input type="number" name="Endyear" [(ngModel)]="projectfield.endingYear" />
+      </div> -->
       <div class="input-group">
         <label for="Role">Role Played</label>
-        <input type="text" name="Role" id="Role" value={{data.role}} placeholder="Enter Role played" />
+        <input type="text" name="Role" id="Role" [(ngModel)]="projectfield.designation" placeholder="Enter Role played" />
       </div>
       <div class="input-group">
         <label for="Tools">Tools Used</label>
-        <input type="text" name="Tools" id="Tools" value={{data.toolsused}} placeholder="Enter Tools used" />
+        <input type="text" name="Tools" id="Tools" [(ngModel)]="projectfield.toolsused" placeholder="Enter Tools used" />
       </div>
       
       <div class="button">
-        <a href="#" class="btn btn-next width-50 ml-auto">Add</a>
+        <a (click)="Update()" class="btn btn-next width-50 ml-auto">Add</a>
       </div>
       <br>
       <div class="row">
@@ -98,10 +113,10 @@
               <a routerLink="/educationaldetails" class="btn btn-prev btns-group">Previous</a>
             </td>
             <td>
-              <a href="#" class="btn btns-group">Save as Draft</a>
+              <a href="#" (click)="OnSubmit()" class="btn btns-group">Save as Draft</a>
             </td>
             <td>
-              <a routerLink="/skilldetails"  class="btn btn-next btns-group">Next</a>
+              <a (click)="OnSubmit()" class="btn btn-next btns-group">Next</a>
             </td>
           </table>
         <!-- </div> -->
