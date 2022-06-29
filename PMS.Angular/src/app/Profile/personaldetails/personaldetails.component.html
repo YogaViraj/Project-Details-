@@ -1,0 +1,166 @@
+<app-topbar></app-topbar>
+<app-sidebar></app-sidebar>
+
+<div class="container d-flex justify-content-center table-box">
+  <form action="#" class="form" (ngSubmit)="personaldata()" style="margin-top:110px;  width: 60%; border-radius: 2px; border-color: black;">
+
+    <div class="progressbar">
+      <div class="progress" id="progress"></div>
+
+      <div class="progress-step progress-step-active" data-title="Personal"></div>
+      <div class="progress-step" data-title="Education"></div>
+      <div class="progress-step" data-title="Project"></div>
+      <div class="progress-step" data-title="Skills"></div>
+      <div class="progress-step" data-title="Achievements"></div>
+    </div>
+
+    <!-- Steps -->
+    <div class="form-step form-step-active">
+      <h3>Personal Details</h3>
+
+      <label for="personaldetails">Profile Photo</label>
+      <input type="file" (change)="fileChangeEvent($event)" id="personaldetails" placeholder="Upload your Photo"
+        style="border-color: black;" />
+      <label class="text-error"> {{imageError}}</label>
+
+      <label for="personaldetails">Objective</label>
+      <textarea name="objective" [(ngModel)]="personal.objective" id="Prodes" rows="4" cols="80"
+        placeholder="  Enter Objective" style="width: 100%; border-color: black;"></textarea>
+      <br>
+      <label for="personaldetails">Name</label>
+      <input type="text" name="name" [(ngModel)]="personal.name" id="personaldetails" placeholder="Enter your name"
+        style="border-color: black;" />
+      <br>
+      <label for="personaldetails">Date of Birth</label>
+      <input type="date" name="dateofBirth" [(ngModel)]="personal.dateofBirth" id="personaldetails"
+        style="border-color: black;" />
+      <br>
+      <label for="personaldetails">Nationality</label>
+      <input type="text" id="personaldetails" name="nationality" [(ngModel)]="personal.nationality"
+        style="border-color: black;" placeholder="Enter your nationality" />
+      <br>
+      <label for="personaldetails">Mail Address</label>
+      <input type="text" id="personaldetails" name="mailAddress" [(ngModel)]="personal.mailAddress"
+        style="border-color: black;" placeholder="Enter your mail address" />
+
+      <br>
+
+
+      <label for="personaldetails">Date of Joining</label>
+      <input type="date" name="dateofJoining" [(ngModel)]="personal.dateofJoining" id="personaldetails"
+        style="border-color: black;" />
+      <br>
+
+      <table>
+        <tr>
+          <td>
+            <label for="personaldetails">Break Duration</label>
+          </td>
+          <td>
+            <button class="btn" style="background-color:#866ec7; border-radius: 500%;">
+              <i class="fa fa-plus fa-xs"></i></button>
+          </td>
+          <td>
+            <button class="btn" style=" background-color:#866ec7; border-radius: 500%;">
+              <i class="fa-solid fa-trash-can"></i></button>
+          </td>
+
+        </tr>
+      </table>
+
+      <td style="width: 55%;">
+        <label for="personaldetails">From</label>
+        <input type="date" id="personaldetails" style="border-color: black;" />
+      </td>
+
+      <td style="width: 55%;">
+        <label for="personaldetails">To</label>
+        <input type="date" id="personaldetails" style="border-color: black;" />
+      </td>
+
+
+
+      <br>
+
+      <table>
+        <tr>
+          <td>
+            <label for="course">Languages Known</label>
+          </td>
+
+          <td>
+            <button class="btn " style=" background-color:#866ec7; border-radius: 500%; ">
+              <i class="fa fa-plus fa-xs"> </i> </button>
+          </td>
+          <td>
+            <button class="btn " style=" background-color:#866ec7; border-radius: 500%;">
+              <i class="fa-solid fa-trash-can"></i></button>
+          </td>
+        </tr>
+      </table>
+
+      <tr class="checkBoxChecked">
+        <td>
+          <div class="Language">
+            <input type="text" id="personaldetails" class="extend" placeholder="Enter Language"
+              style="border-color: black;" />
+          </div>
+        </td>
+        <td>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="checkbox-1" />
+            <label class="custom-control-label" for="checkbox-1">Read</label>
+          </div>
+        </td>
+        <td>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="checkbox-2" />
+            <label class="custom-control-label" for="checkbox-2">Write&nbsp;&nbsp;</label>
+          </div>
+        </td>
+        <td>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="checkbox-3" />
+            <label class="custom-control-label" for="checkbox-3">Speak&nbsp;&nbsp;</label>
+          </div>
+        </td>
+      </tr>
+
+      <br>
+
+      <table>
+        <tr>
+          <td>
+            <label for="personaldetails">Social Media</label>
+          </td>
+          <td>
+            <button class="btn  " style="background-color:#866ec7; border-radius: 500%;">
+              <i class="fa fa-plus fa-xs"></i></button>
+          </td>
+
+          <td>
+            <button class="btn " style=" background-color:#866ec7; border-radius: 500%;">
+              <i class="fa-solid fa-trash-can"></i></button>
+          </td>
+        </tr>
+      </table>
+
+
+
+      <label for="personaldetails">Social Media Name</label>
+      <input type="text" id="personaldetails" placeholder="Enter Social media name" style="border-color: black;" />
+      <br>
+      <label for="personaldetails">Social Media Link</label>
+      <input type="text" id="personaldetails" placeholder="Enter Social media link" style="border-color: black;" />
+
+
+      <div class="row">
+        <a [routerLink]="['/createprofile']" class="btn btn-next width-50 ml-auto">Back</a>
+        <a (click)="personaldata()" routerLink="/personaldetails" class="btn btn-next width-50 ml-auto">Save as
+          Draft</a>
+        <a [routerLink]="['/projectdetails']" class="btn btn-next width-50 ml-auto">Next</a>
+      </div>
+    </div>
+    <br><br>
+  </form>
+</div>
